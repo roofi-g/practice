@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal-window {
+            display: none;
+            width: 180px;
+            padding: 30px;
+            border: 2px solid gray;
+            margin: auto;
+            margin-top: 15%;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn_modal_window">Открыть модальное окно</button>
+    <div class="modal-window">
+        <h2>Модальное окно</h2>
+        <button>Закрыть модальное окно</button>
+    </div>
+    <script>
+        const btnOpen = document.querySelector('.btn_modal_window');
+        const modalWindow = document.querySelector('.modal-window');
+        const btnModalWindow = document.querySelector('.modal-window button');
+        
+        btnOpen.addEventListener('click', () => {
+            modalWindow.style.display = 'block';
+        });
+        btnModalWindow.addEventListener('click', () => {
+            modalWindow.style.display = 'none';
+        })
+
+        // window.addEventListener('click', (e) => {
+        //     if (e.target.className === 'btn_modal_window') {
+        //         modalWindow.style.display = 'block';
+        //     }
+        // })
+    </script>
+</body>
+</html>

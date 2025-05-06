@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content-box {
+            display: flex;
+        }
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <button class="addElemBtn">"Добавить элемент</button>
+        <button class="removeElemBtn">"Удалить элемент</button>
+        <div class="content-box"></div>
+    </div>
+    <script>
+        const addElemBtn = document.querySelector('.addElemBtn');
+        const removeElemBtn = document.querySelector('.removeElemBtn');
+        const cloneElemBtn = document.querySelector('.cloneElemBtn');
+
+        const elemContent = document.querySelector('.content-box');
+
+        addElemBtn.addEventListener('click', () => {
+            let createDiv = document.createElement('div');
+            createDiv.className = 'box'; 
+            createDiv.textContent = elemContent.children.length + 1;
+            elemContent.append(createDiv);
+        })
+
+        removeElemBtn.addEventListener('click', () => {
+            elemContent.lastElementChild.remove();
+        })
+
+
+
+
+        // function currentWindowSize() {
+        //     return `Высота окна: ${window.innerHeight}, ширина окна: ${window.innerWidth}`;
+        // }
+        // console.log(currentWindowSize());
+
+        // window.addEventListener('beforeunload', function(e) {
+        //     e.preventDefault();
+        //     e.returnValue = 'Есть несохранённые изменения! Уверены, что хотите покинуть страницу?';
+        // });
+    </script>
+</body>
+</html>

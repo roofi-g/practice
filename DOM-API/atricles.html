@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Список статей</h1>
+        <div class="articles"></div>
+        <button class="newArticle" style="margin-top: 20px;">Новая статья</button>
+    </div>
+
+    <script>
+        const articlesData = [
+            {
+                title: 'Заголовок статьи 1',
+                content: 'Содержание статьи 1'
+            },
+            {
+                title: 'Заголовок статьи 2',
+                content: 'Содержание статьи 2'
+            }
+        ];
+
+        const listArticles = document.querySelector('.articles');
+        const newArticle = document.querySelector('.newArticle');
+        
+        articlesData.forEach(elem => {
+            const box = createArticle(title, content);
+            listArticles.append(box);
+        });
+
+        function createArticle(title, content) {
+            const box = document.createElement('div');
+            const titleElem = document.createElement('h2');
+            const textElem = document.createElement('p');
+            const buttonEdit = document.createElement('button');
+            const buttonDelete = document.createElement('button');
+
+            titleElem.textContent = title;
+            textElem.textContent = content;
+            buttonEdit.textContent = 'Редактировать';
+            buttonDelete.textContent = 'Удалить';
+
+            box.append(titleElem);
+            box.append(textElem);
+            box.append(buttonEdit);
+            box.append(buttonDelete);
+
+            return box;
+        }
+
+        newArticle.addEventListener('click', () => {
+            let obj = { title: 'Новая статья', content: 'Введите содержание статьи...' };
+            createArticle(obj.title, obj.content);
+            articlesData.push(obj);
+        })
+
+        listArticles.addEventListener('click', (event) => {
+            if (event.target.textContent === 'Редактировать') {
+                const articleItem = event.target.closest('div');
+                const articleTitle = articleItem.querySelector('h2');
+                const articleContent = articleItem.querySelector('p');
+
+                const newTitle = prompt('Введите новое название заметки');
+                articleTitle.textContent = newTitle;
+
+                const newTextContent = prompt('Введите новое содержание статьи');
+                articleContent.textContent = newTextContent;
+            }
+            if (event.target.textContent === 'Удалить') {
+                const articleItem = event.target.closest('div');
+                articleItem.remove();
+            }
+        })
+        
+    </script>
+</body>
+</html>

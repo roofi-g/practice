@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Расписание занятий</h1>
+        <div class="content"></div>
+    </div>
+    <script>
+        const lessonsData = [
+            {
+                name: 'Силовая тренирвка',
+                time: '18:00',
+                maxQuantity: 5,
+                currentQuantity: 3
+            },
+            {
+                name: 'Йога',
+                time: '19:00',
+                maxQuantity: 10,
+                currentQuantity: 8
+            }
+        ];
+
+        const content = document.querySelector('.content');
+
+        lessonsData.forEach(elem => {
+            const box = createLesson(elem.name, elem.time, elem.maxQuantity, elem.currentQuantity);
+            content.append(box);
+        })
+
+        function createLesson(title, time, maxQuantity, currentQuantity) {
+            const box = document.createElement('div');
+
+            const lessonTitle = document.createElement('h2');
+            const lessonTime = document.createElement('p');
+            const maxQuantityP = document.createElement('p');
+            const currentQuantityP = document.createElement('p');
+
+            const btnSignUp = document.createElement('button');
+
+            lessonTitle.textContent = title;
+            lessonTime.textContent = `Время занятия: ${time}`;
+
+            maxQuantityP.textContent = `Максимальное количество участников: ${maxQuantity}`;
+            currentQuantityP.textContent = `Текущее количество участников: ${currentQuantity}`;
+
+            btnSignUp.textContent = 'Записаться';
+
+            box.append(lessonTitle);
+            box.append(lessonTime);
+            box.append(maxQuantityP);
+            box.append(currentQuantityP);
+            box.append(btnSignUp);
+
+            return box;
+        }
+
+        content.addEventListener('click', (event) => {
+            const lessonItem = event.target.closest('div');
+            const lessonTitle = lessonItem.querySelector('h2');
+            const currentQuantityP = lessonItem.querySelector('p:last-of-type');
+            const btnSignUp = lessonItem.querySelector('button');
+
+            if (event.target.textContent === "Записаться") {
+                lessonsData.forEach(elem => {
+                    if (lessonTitle.textContent === elem.name) {
+                        if (elem.currentQuantity < elem.maxQuantity) {
+                            const quantity = ++elem.currentQuantity;
+                            console.log(quantity);
+                            currentQuantityP.textContent = `Текущее количество участников: ${quantity}`;
+
+                            btnSignUp.textContent = 'Отменить запись';
+                        }
+                        console.log(lessonsData);
+                    };   
+                }) 
+            } else {
+                lessonsData.forEach(elem => {
+                    if (lessonTitle.textContent === elem.name) {
+                        if (elem.currentQuantity < elem.maxQuantity) {
+                            const quantity = --elem.currentQuantity;
+                            console.log(quantity);
+                            currentQuantityP.textContent = `Текущее количество участников: ${quantity}`;
+
+                            btnSignUp.textContent = 'Записаться';
+                        }
+                        console.log(lessonsData);
+                    };   
+                }) 
+            }
+        })
+
+    </script>
+</body>
+</html>
