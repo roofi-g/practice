@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="super_element">Привет</p>
+
+    <img src="https://placeimg.com/50/50/animals" alt="art">
+    <img src="https://placeimg.com/50/50/arch" alt="art">
+    <img src="https://placeimg.com/50/50/nature" alt="art">
+    <img src="https://placeimg.com/50/50/people" alt="art">
+    <img src="https://placeimg.com/50/50/tech" alt="art">
+    <img src="https://placeimg.com/50/50/tech/grayscale" alt="art">
+    <img src="https://placeimg.com/50/50/tech/sepia" alt="art">
+
+    <br>
+
+    <button>Кнопка</button>
+    <button class="super_element">Кнопка с классом btn</button>
+    <button>Кнопка</button>
+
+    <br>
+
+    <textarea></textarea>
+
+    <br>
+
+    <ul>
+        <li>
+            <button>Кнопка 1</button>
+        </li>
+        <li>
+            <button>Кнопка 2</button>
+        </li>
+        <li>
+            <button>Кнопка 3</button>
+        </li>
+        <li>
+            <button>Кнопка 4</button>
+        </li>
+    </ul>
+</body>
+<script>
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     console.log('все теги загрузились')
+    // })
+    window.onload = function() {
+        console.log('все теги загрузились')
+    }
+    document.addEventListener('click', (event) => {
+        if (event.target.className === "super_element") {
+            console.log(`Класс ${event.target.className} присутствует в элементе ${event.target.tagName.toLowerCase()}`);
+        } else {
+            console.log(`"super_element" отсутствует`);
+        }
+    })
+    document.addEventListener('mouseover', (event) => {
+        if (event.target.tagName.toLowerCase() === "textarea") {
+            console.log(`Вы навели на ${event.target.tagName.toLowerCase()}`);
+        }
+    })
+    const btnElem = document.querySelector('ul');
+    const btn = btnElem.querySelectorAll('li');
+    btnElem.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === "button") {
+            console.log(`Текст - ${event.target.textContent}`);
+            for (let i = 0; i < btn.length; i++) {
+            if (i % 2 == 1) {
+                btn[i].style.backgroundColor = "green";
+            }
+        }
+        }
+    })
+</script>
+</html>

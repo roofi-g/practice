@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        const divEl = document.querySelector('div.container');
+        
+        function createButton() {
+            const createElem = document.createElement('button');
+            createElem.innerHTML = 'Кнопка';
+            divEl.append(createElem);
+            return createElem;
+        }
+        function addHeadingH1(btn, h1) {
+            btn.addEventListener('click', () => {
+                const createElem = document.createElement('h1');
+                createElem.innerHTML = h1;
+                divEl.append(createElem);
+            })
+        }
+        function removeHeadingH1(btn) {
+            btn.addEventListener('click', () => {
+                const h1Elem = divEl.querySelectorAll('h1');
+                if (h1Elem.length > 0) {
+                    h1Elem[0].remove();
+                }
+            })
+        }
+        addHeadingH1(createButton(), 'Новый заголовок');
+        removeHeadingH1(createButton())
+        
+
+
+        // const createElem1 = document.createElement('button');
+        // const createElem2 = document.createElement('button');
+        // const createElem3 = document.createElement('button');
+        // createElem1.innerHTML = 'Кнопка 1';
+        // createElem2.innerHTML = 'Кнопка 2';
+        // createElem3.innerHTML = 'Кнопка 3';
+        // divEl.append(createElem1);
+        // divEl.append(createElem2);
+        // divEl.append(createElem3);
+    </script>
+</body>
+</html>

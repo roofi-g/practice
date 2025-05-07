@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" class="form">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox">Согласен с условиями</label>
+        <div class="err"></div>
+        <br>
+        <button class="submit">Отправить</button>
+    </form>
+    <script>
+        const formEl = document.querySelector('.form');
+        const inputEl = formEl.querySelector('.checkbox');
+        const divEl = formEl.querySelector('.err');
+
+        formEl.addEventListener('submit', (e) => {
+            if (inputEl.checked) {
+                console.log(inputEl.checked);
+            } else {
+                divEl.innerHTML = 'Текст';
+                e.preventDefault();
+            }
+        })
+    </script>
+</body>
+</html>
