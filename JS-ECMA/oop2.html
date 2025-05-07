@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const obj = {
+        //     a: 1
+        // }
+        // function getPrototypeChain(obj) {
+        //     let arr = [];
+        //     while (obj !== null) {
+        //         arr.push(obj);
+        //         obj = Object.getPrototypeOf(obj)
+        //     }
+        //     return arr;
+        // }
+        // console.log(getPrototypeChain(obj)); // посмотреть цепочки прототипов 
+        
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name,
+        //         this.age = age
+        //     }
+        //     introduce() {
+        //         console.log(`Меня зовут ${this.name} и мне ${this.age} лет.`)
+        //     }
+        // }
+        // const person1 = new Person('John', 25);
+        // person1.introduce();
+
+        // class Animal {
+        //     constructor(name, voice) {
+        //         this.name = name;
+        //         this.voice = voice;
+        //     }
+        //     speak() {
+        //         console.log(`${this.name} издает звук: ${this.voice}`);
+        //     }
+        // }
+
+        // class Dog extends Animal {
+        //     constructor(name, voice, breek) {
+        //         super(name, voice)
+        //         this.breek = breek;
+        //     }
+        //     fetch() {
+        //         console.log(`${this.name}, породы ${this.breek} принесла мяч`);
+        //     }
+        // }
+        // const animal1 = new Animal('Собака', 'гав');
+        // animal1.speak();
+        // const dog1 = new Dog('Шарик', 'гав', 'шпиц');
+        // dog1.speak();
+        // dog1.fetch();
+
+        // class User {
+        //     static #maxAge = 120;
+        //     #name;
+        //     #age;
+        //     #email;
+
+        //     constructor(name, age, email) {
+        //         this.#name = name;
+        //         this.#age = age;
+        //         if (age > User.#maxAge) {
+        //             throw new Error("Возраст не настоящий");
+        //         }
+        //         this.#email = email;
+        //     }
+        //     getName = () => console.log(`${this.#name}`);
+        //     setName = (name) => this.#name = name;
+
+        //     getAge = () => console.log(`${this.#age}`);
+        //     setAge = (age) => {
+        //         if (age > User.#maxAge) {
+        //             throw new Error("Возраст превышает допустимый");
+        //         }
+        //         this.#age = age
+        //     };
+        // }
+        // const user = new User('Roofi', 26, 'roo@mail.ru');
+        // // const user2 = new User('Roofi', 130, 'roo@mail.ru');
+        // user.setName('Roo');
+        // user.getName();
+        // user.setAge(119);
+        // // console.log(user.#age);
+
+        // class Product {
+        //     static #maxCount = 10;
+        //     #name;
+        //     #price;
+        //     #count;
+
+        //     constructor(name, price, count) {
+        //         this.#name = name;
+        //         this.#price = price;
+        //         this.#count = count;
+        //         if (count > Product.#maxCount) {
+        //             throw new Error("Превышен лимит на максимальное количество товаров");
+        //         }
+        //     }
+        //     getPrice = () => console.log(`Цена продукта - ${this.#name}: ${this.#price} руб`);
+        //     setPrice = (price) => this.#price = price;
+
+        //     setCount = (count) => {
+        //         if (count > Product.#maxCount) {
+        //             throw new Error("Превышает лимит");
+        //         }
+        //         this.#count = count;
+        //     };
+        // }
+        // const productMilk = new Product('Молоко', 45, 2);
+        // productMilk.setPrice(66);
+        // productMilk.setCount(12);
+        // productMilk.getPrice();
+        // const productCheeze = new Product('Сыр', 86, 11);
+
+        // дз
+
+        // class Employee {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     displayInfo = () => console.log(`Имя сотрудника - ${this.name}`);
+        // }
+        // class Manager extends Employee {
+        //     constructor(name, department) {
+        //         super(name)
+        //         this.department = department;
+        //     }
+        //     displayInfo = () => console.log(`Имя сотрудника - ${this.name}, отдел - ${this.department}`);
+        // }
+        // const employee = new Employee("John Smith");
+        // employee.displayInfo();
+        // const manager = new Manager("Jane Doe", "Sales");
+        // manager.displayInfo();
+
+        class Product {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+        }
+        class Order {
+            constructor(orderNumber, products) {
+                this.orderNumber = orderNumber;
+                this.products = [];
+            }
+            addProduct = (product) => this.products.push(product);
+            getTotalPrice = () => {
+                return this.products.reduce((acc, el) => acc += el.price, 0)
+                // let sum = 0;
+                // this.products.forEach(el => {
+                //     sum += el.price
+                // })
+                // return sum;
+            }
+        }
+        const order = new Order(12345);
+
+        const product1 = new Product("Phone", 500);
+        order.addProduct(product1);
+
+        const product2 = new Product("Headphones", 100);
+        order.addProduct(product2);
+
+        console.log(order.getTotalPrice()); // Вывод: 600
+    </script>
+</body>
+</html>

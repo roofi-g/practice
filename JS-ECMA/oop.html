@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const Person = {
+        //     name: this.name,
+        //     age: this.age,
+        //     gender: this.gender,
+        //     introduse() {
+        //         console.log(`My name is ${this.name}. I'm ${this.age} years old and I identify as ${this.gender}`);
+        //     },
+        //     changeName(name) {
+        //         this.name = name;
+        //     }
+        // }
+        // Person.name = 'John';
+        // Person.age = 25;
+        // Person.gender = 'male';
+        // Person.introduse();
+        // Person.changeName('Mike');
+        // Person.introduse();
+
+        // const Animal = {
+        //     name: this.name,
+        //     eat() {
+        //         console.log(`${this.name} ест.`);
+        //     }
+        // }
+        // const Dog = {
+        //     name: this.name,
+        //     bark() {
+        //         console.log(`${this.name} лает.`);
+        //     }
+        // }
+
+        // Dog.eat = Animal.eat; // одалживание 
+
+        // Dog.name = 'Rex';
+        // Dog.bark();
+        // Dog.eat();
+
+        // const calc = {
+        //     add(a, b) {
+        //         return a + b;
+        //     },
+        //     subtract(a, b) {
+        //         return a - b;
+        //     }
+        // }
+        // console.log(calc.add.call(null, 5, 3));
+        // console.log(calc.subtract.apply(null, [5, 3]));
+
+        // const User = {
+        //     name: 'Bob',
+        //     hello() {
+        //         console.log(`Hello, ${this.name}`)
+        //     }
+        // }
+        // const User2 = {
+        //     name: 'Tom',
+        // }
+        // User.hello();
+        // User.hello.call(User2); // контекст поменяет имя. суть: берем данные из другого объекта
+
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name,
+        //         this.age = age
+        //     }
+        //     introduse() {
+        //         console.log(`My name is ${this.name}. I'm ${this.age} years old.`);
+        //     }
+        // }
+        // const person = new Person('John', 25);
+        // person.introduse();
+
+        // class BankAccount {
+        //     static bankName = 'Альфа';
+        //     constructor(accountNumber, balance) {
+        //         this.accountNumber = accountNumber,
+        //         this.balance = balance
+        //     }
+        //     deposit(amount) {
+        //         console.log(`Deposited ${amount} into account ${this.accountNumber}. New balance: ${this.balance += amount}`);
+        //     }
+        //     withdraw(amount) {
+        //         const balance = this.balance -= amount;
+        //         if (balance > 0) {
+        //             console.log(`Withdrawn ${amount} from account ${this.accountNumber}. New balance: ${balance}`); 
+        //         } else {
+        //             console.log(`Insufficient funds in account ${this.accountNumber}}`);
+        //         } 
+        //     }
+        // }
+        // const account1 = new BankAccount("1234567890", 1000);
+        // account1.deposit(500); // Вывод: Deposited 500 into account 1234567890. New balance: 1500
+        // account1.withdraw(200); // Вывод: Withdrawn 200 from account 1234567890. New balance: 1300
+        // account1.withdraw(1500); // Вывод: Insufficient funds in account 1234567890
+
+        // class Book {
+        //     constructor(title, author, pages) {
+        //         this.name = title,
+        //         this.author = author,
+        //         this.pages = pages
+        //     }
+        //     displayInfo() {
+        //         console.log(`Название книги - ${this.name}. Автор - ${this.author}.`);
+        //     }
+        // }
+        // const book = new Book('Игра престолов', 'Дж.Мартин');
+        // book.displayInfo();
+
+        class Student {
+            constructor(name, age, grade) {
+                this.name = name,
+                this.age = age,
+                this.grade = grade
+            }
+            displayInfo() {
+                console.log(`Имя - ${this.name}. Возраст - ${this.age}. Класс - ${this.grade}.`);
+            }
+        }
+        const student = new Student('John Smith', 16, '10th grade');
+        student.displayInfo();
+        const student2 = new Student("Jane Doe", 17, "11th grade");
+        student2.displayInfo();
+    </script>
+</body>
+</html>

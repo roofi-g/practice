@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <h2 class="my-class"></h2>
+        <div class="root__element">
+            <h2></h2>
+            <p class="my-class"></p>
+            <div>
+                <h2 class="my-class"></h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        const arrData = [1, 5, 3, 4, 2, 7, 6, 0];
+        // console.log(Math.min(...arrData));
+
+        // function removeDubl(...rest) {
+        //     return rest.filter((value, i) => {
+        //         return i === rest.indexOf(value);
+        //     })
+        // }
+        // function removeDubl(...rest) {
+        //     const newArr = [...new Set(rest)];
+        //     return newArr;
+        // }
+        // console.log(removeDubl(5, 1, 4, 1, 5, 6, 4, 6)); // 0, 1, 2, 3 != 1, крч логика в итерации
+
+        // function getEvenNumbers(arr) {
+        //     return arr.filter(value => value % 2 == 0)
+        // }
+        // console.log(getEvenNumbers(arrData)); 
+
+        // function calcAverage(arr) {
+        //     return arr.reduce((value, value2) => value + value2) / arr.length;
+        // }
+        // console.log(calcAverage(arrData)); 
+
+        // function capitalezeFirstLetter(str) {
+        //     const arrStr = str.split(' ');
+        //     return arrStr.map((el) => el[0].toUpperCase() + el.slice(1)).join(' ');
+        // }
+        // console.log(capitalezeFirstLetter('arrData hello roofi')); 
+
+        // function capitalezeFirstLetter(str) {
+        //     return str.replace(/(^|\s)\S/g, (char) => char.toUpperCase());
+        // }
+        // console.log(capitalezeFirstLetter('arrData hello roofi')); 
+
+        // function createCounter(def) {
+        //     return {
+        //         increment() {
+        //             return ++def;
+        //         },
+        //         decrement() {
+        //             return --def;
+        //         }
+        //     }
+        // }
+        // const func1 = createCounter(2);
+        // console.log(func1.increment());
+        // console.log(func1.decrement());
+
+        // function createCalc(def) {
+        //     return {
+        //         value: def,
+        //         add(num) {
+        //             return num += this.value;
+        //         },
+        //         subtrack(num) {
+        //             return num -= this.value;
+        //         }
+        //     }
+        // }
+        // const func = createCalc(2);
+        // console.log(func.add(4));
+        // console.log(func.subtrack(5));
+
+        // function createGreeting(name) {
+        //     return function () {
+        //         console.log(`Hello, ${name}`);
+        //     }
+        // }
+        // const greeting = createGreeting("Roofi");
+        // greeting();
+
+        // function createPasswordChecket(lengthPass) {
+        //     return (pass) => (pass.length < lengthPass) ? true : false;
+        // }
+        // function createPasswordChecket(lengthPass) {
+        //     return (pass) => pass.length < lengthPass;
+        // }
+        // const isPasswordValid = createPasswordChecket(8);
+        // console.log(isPasswordValid('password'));
+        // console.log(isPasswordValid('secter'));
+
+        // 3) Напишите рекурсивную функцию findElementByClass, которая принимает корневой элемент дерева DOM и 
+        // название класса в качестве аргументов и возвращает первый найденный элемент с указанным классом в этом дереве.
+
+        // function findElementByClass(rootElement, classNamee) {
+        //     const elem = rootElement.childNodes;
+        //     elem.forEach(element => {
+        //         if (element.className === classNamee) {
+        //             console.log(element);
+        //             return element;
+        //         }
+        //         // findElementByClass(rootElement, classNamee)
+        //     });
+        // }
+        // const rootElement = document.getElementById('root');
+        // const targetElement = findElementByClass(rootElement, 'my-class');
+        // // console.log(targetElement);
+        
+    </script>
+</body>
+</html>
