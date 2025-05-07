@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function printNumbers(from, to) {
+        //     let number = from;
+        //     let timerId = setInterval(() => {
+        //         console.log(number);
+        //         if (number == to) {
+        //             clearInterval(timerId);
+        //         }
+        //         number++;
+        //     }, 1000);
+        // }
+        // printNumbers(3, 7);
+
+        function printNumbers(from, to) {
+            let number = from;
+            let timerId = setTimeout(function tick() {
+                console.log(number);
+                if (number < to) {
+                    timerId = setTimeout(tick, 1000);
+                }
+                number++;
+            }, 1000);
+        }
+        printNumbers(3, 7);
+    </script>
+</body>
+</html>
